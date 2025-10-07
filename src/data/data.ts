@@ -36,7 +36,7 @@ export const me = {
   nat: "ES",
 };
 
-export const contacts = [
+const contactsWithoutId = [
   {
     gender: "female",
     name: {
@@ -3838,3 +3838,10 @@ export const contacts = [
     nat: "NZ",
   },
 ];
+
+export const contacts = contactsWithoutId.map((contact, index) => ({
+  ...contact,
+  id: index + 1,
+}));
+
+export type User = (typeof contacts)[0];
