@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.2",
+    "dayjs": "^1.11.18",
     "expo": "~54.0.12",
     "expo-router": "~6.0.10",
     "expo-status-bar": "~3.0.8",

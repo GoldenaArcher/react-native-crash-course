@@ -39,7 +39,11 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
   },
-  detailAction: {
+  contactDetailContainer: {
+    marginVertical: 12,
+    paddingVertical: 12,
+  },
+  contactRow: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
@@ -47,16 +51,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 4,
   },
-  detailActionLabel: {
+  contactRowLabel: {
     fontSize: 14,
     color: "#888",
     marginBottom: 4,
   },
-  detailActionValue: {
+  contactRowValue: {
     fontSize: 16,
     color: "#000",
   },
-  detailActionIcons: {
+  contactRowIconContainer: {
     flexDirection: "row",
     gap: 16,
   },

@@ -3,7 +3,7 @@ import { View, FlatList } from "react-native";
 
 import styles from "./_style";
 
-import { contacts } from "../../src/data/data";
+import { contacts } from "../../../src/data/data";
 import ContactListItem from "./_components/_contact-list-item";
 
 const index = () => {

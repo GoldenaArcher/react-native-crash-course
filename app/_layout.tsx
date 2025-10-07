@@ -25,7 +25,13 @@ const RootLayout = () => {
             }}
           />
           <Stack.Screen
-            name="contact/index"
+            name="(tabs)"
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="(tabs)/contact/index"
             options={{
               title: "Contacts",
               headerTitleAlign: isWeb ? "center" : "left",
@@ -33,7 +39,7 @@ const RootLayout = () => {
             }}
           />
           <Stack.Screen
-            name="contact/details/[id]"
+            name="(tabs)/contact/details/[id]"
             options={{
               title: "Contact Details",
               headerTitleAlign: isWeb ? "center" : "left",
