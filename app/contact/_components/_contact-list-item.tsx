@@ -4,9 +4,9 @@ import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 
 import styles from "../_style";
-import { isAndroid } from "../../../../src/utils/platform";
-import { User } from "../../../../src/data/data";
-import { getContactFullName } from "../../../../src/utils/contact";
+import { isAndroid } from "../../../src/utils/platform";
+import { User } from "../../../src/data/data";
+import { getContactFullName } from "../../../src/utils/contact";
 
 interface ContactListItemProps {
   user: User;

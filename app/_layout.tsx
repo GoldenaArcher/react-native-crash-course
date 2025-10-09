@@ -1,10 +1,13 @@
 import React from "react";
-import { Stack } from "expo-router";
+import { Stack, usePathname } from "expo-router";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "react-native";
 import { isIOS, isWeb } from "../src/utils/platform";
 
 const RootLayout = () => {
+  const pathname = usePathname();
+  const isContactRootRoute = pathname === "/contact";
+
   return (
     <SafeAreaProvider>
       <SafeAreaView
@@ -16,7 +19,22 @@ const RootLayout = () => {
           alignSelf: "center",
         }}
       >
-        <Stack>
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen
+            name="index"
+            options={{
+              title: "Home",
+            }}
+          />
+          <Stack.Screen
+            name="contact"
+            options={{
+              title: "Contacts",
+              headerBackButtonDisplayMode: "minimal",
+            }}
+          />
+        </Stack>
+        {/* <Stack>
           <Stack.Screen
             name="index"
             options={{
@@ -25,13 +43,7 @@ const RootLayout = () => {
             }}
           />
           <Stack.Screen
-            name="(tabs)"
-            options={{
-              headerShown: false,
-            }}
-          />
-          <Stack.Screen
-            name="(tabs)/contact/index"
+            name="contact/index"
             options={{
               title: "Contacts",
               headerTitleAlign: isWeb ? "center" : "left",
@@ -39,7 +51,7 @@ const RootLayout = () => {
             }}
           />
           <Stack.Screen
-            name="(tabs)/contact/details/[id]"
+            name="contact/details/[id]"
             options={{
               title: "Contact Details",
               headerTitleAlign: isWeb ? "center" : "left",
@@ -47,7 +59,7 @@ const RootLayout = () => {
               headerBackButtonDisplayMode: "minimal",
             }}
           />
-        </Stack>
+        </Stack> */}
       </SafeAreaView>
     </SafeAreaProvider>
   );

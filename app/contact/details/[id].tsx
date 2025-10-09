@@ -3,17 +3,17 @@ import React, { useEffect, useState } from "react";
 import { Text, View, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-import { getContactById, getContactFullName } from "../../../../src/utils/contact";
+import { getContactById, getContactFullName } from "../../../src/utils/contact";
 
 import styles from "../_style";
-import { User } from "../../../../src/data/data";
+import { User } from "../../../src/data/data";
 import {
   capitializeFirstLetter,
   toPhoneNumber,
-} from "../../../../src/utils/string";
-import { isIOS } from "../../../../src/utils/platform";
+} from "../../../src/utils/string";
+import { isIOS } from "../../../src/utils/platform";
 import ContactRow from "../_components/_row";
-import { getMonthDayYear } from "../../../../src/utils/date";
+import { getMonthDayYear } from "../../../src/utils/date";
 
 const Details = () => {
   const { id } = useLocalSearchParams();
