@@ -1,49 +1,16 @@
-import { useLocalSearchParams, useNavigation } from "expo-router";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Text, View, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-import { getContactById, getContactFullName } from "../../../src/utils/contact";
-
 import styles from "../_style";
-import { User } from "../../../src/data/data";
-import {
-  capitializeFirstLetter,
-  toPhoneNumber,
-} from "../../../src/utils/string";
-import { isIOS } from "../../../src/utils/platform";
-import ContactRow from "../_components/_row";
-import { getMonthDayYear } from "../../../src/utils/date";
+import { getContactFullName } from "../../src/utils/contact";
+import ContactRow from "./_row";
+import { User } from "../../src/data/data";
+import { capitializeFirstLetter, toPhoneNumber } from "../../src/utils/string";
+import { isIOS } from "../../src/utils/platform";
+import { getMonthDayYear } from "../../src/utils/date";
 
-const Details = () => {
-  const { id } = useLocalSearchParams();
-  const navigation = useNavigation();
-  const [contact, setContact] = useState<User | null>(null);
-
-  useEffect(() => {
-    const contact = getContactById(id as string);
-
-    if (!contact) {
-      return;
-    }
-
-    setContact(contact);
-  }, [id]);
-
-  useEffect(() => {
-    if (contact?.name) {
-      navigation.setOptions({ title: getContactFullName(contact) });
-    }
-  }, [contact, navigation]);
-
-  if (!contact) {
-    return (
-      <View style={styles.container}>
-        <Text>Contact not found.</Text>
-      </View>
-    );
-  }
-
+const Profile = ({ contact }: { contact: User }) => {
   return (
     <View style={styles.container}>
       {/* profile header */}
@@ -105,4 +72,4 @@ const Details = () => {
   );
 };
 
-export default Details;
+export default Profile;

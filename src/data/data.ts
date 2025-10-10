@@ -1,4 +1,4 @@
-export const me = {
+export const me: User = {
   gender: "male",
   name: {
     title: "mr",
@@ -34,6 +34,7 @@ export const me = {
     thumbnail: "https://randomuser.me/api/portraits/thumb/men/92.jpg",
   },
   nat: "ES",
+  uid: 99999999,
 };
 
 const contactsWithoutId = [
@@ -3841,7 +3842,7 @@ const contactsWithoutId = [
 
 export const contacts = contactsWithoutId.map((contact, index) => ({
   ...contact,
-  id: index + 1,
+  uid: index + 1,
 }));
 
 export type User = (typeof contacts)[0];

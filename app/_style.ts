@@ -3,6 +3,9 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    maxWidth: 1080,
+    width: "100%",
+    alignSelf: "center",
   },
   title: {
     fontSize: 32,

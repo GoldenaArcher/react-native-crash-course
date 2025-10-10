@@ -3,10 +3,10 @@ import { View, Text, Image, Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 
+import { isAndroid } from "../../src/utils/platform";
+import { User } from "../../src/data/data";
+import { getContactFullName } from "../../src/utils/contact";
 import styles from "../_style";
-import { isAndroid } from "../../../src/utils/platform";
-import { User } from "../../../src/data/data";
-import { getContactFullName } from "../../../src/utils/contact";
 
 interface ContactListItemProps {
   user: User;
@@ -24,7 +24,7 @@ function ContactListItem({ user }: ContactListItemProps) {
   const fullName = getContactFullName(user);
 
   const onPress = () => {
-    navigate(`/contact/details/${user.id}`);
+    navigate(`/details/${user.uid}`);
   };
 
   return (

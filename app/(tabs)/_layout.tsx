@@ -1,16 +1,20 @@
 import { Tabs } from "expo-router";
+import { Drawer } from 'expo-router/drawer';
 import { Ionicons } from "@expo/vector-icons";
+import { isAndroid } from "../../src/utils/platform";
 
 export default function ContactTabsLayout() {
+  const Navigator = isAndroid ? Drawer : Tabs;
+
   return (
-    <Tabs
+    <Navigator
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: "#007AFF",
       }}
       detachInactiveScreens={false}
     >
-      <Tabs.Screen
+      <Navigator.Screen
         name="index"
         options={{
           title: "Contacts",
@@ -21,7 +25,7 @@ export default function ContactTabsLayout() {
           headerShown: true,
         }}
       />
-      <Tabs.Screen
+      <Navigator.Screen
         name="new-contact"
         options={{
           title: "New Contact",
@@ -32,7 +36,7 @@ export default function ContactTabsLayout() {
           headerShown: true,
         }}
       />
-      <Tabs.Screen
+      <Navigator.Screen
         name="me"
         options={{
           title: "Me",
@@ -43,6 +47,6 @@ export default function ContactTabsLayout() {
           headerShown: true,
         }}
       />
-    </Tabs>
+    </Navigator>
   );
 }
